@@ -1,0 +1,9 @@
+name = "ai-coding-assistant-proxy"
+main = "server/cloudflare/worker.js"
+compatibility_date = "2024-05-01"
+
+[vars]
+HF_MODEL = "HuggingFaceH4/zephyr-7b-beta"
+
+[env.production.vars]
+HF_MODEL = "HuggingFaceH4/zephyr-7b-beta"

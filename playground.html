@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Coding Assistant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="/assets/css/styles.css">
+<script defer src="/assets/js/main.js"></script>
+</head>
+<body class="bg-white text-slate-900" style="font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;">
+<header class="sticky top-0 z-50 bg-white/80 backdrop-blur shadow">
+  <div class="max-w-7xl mx-auto px-4 md:px-8 py-3 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2">
+      <span class="inline-block w-8 h-8 rounded-xl bg-indigo-600"></span>
+      <span class="font-semibold tracking-tight">AI Coding Assistant</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-6">
+      <a href="/" class="navlink">Home</a>
+      <a href="/playground.html" class="navlink">Playground</a>
+      <a href="/docs.html" class="navlink">Docs</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="#" class="hidden sm:inline-block px-4 py-2 rounded-xl border border-slate-200 hover:border-slate-900 text-sm font-medium">Sign in</a>
+      <a href="/builder.html" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-black text-white text-sm font-semibold shadow">Get Started</a>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-7xl mx-auto px-4 md:px-8 py-12">
+  <h1 class="text-3xl font-bold tracking-tight">Playground</h1>
+  <p class="mt-2 text-slate-600">Simple in-browser demo (mock AI for now).</p>
+  <div class="mt-6 grid md:grid-cols-2 gap-6">
+    <textarea id="code" class="w-full h-80 p-4 border border-slate-200 rounded-xl font-mono text-sm bg-slate-50 focus:outline-none focus:ring-2 focus:ring-indigo-500">// Paste your code here
+function sum(a, b){ 
+  return a + b
+}</textarea>
+    <div class="border border-slate-200 rounded-xl p-4">
+      <div class="flex gap-3">
+        <button id="btnExplain" class="px-4 py-2 rounded-lg bg-slate-900 hover:bg-black text-white text-sm font-semibold">Explain</button>
+        <button id="btnRefactor" class="px-4 py-2 rounded-lg border border-slate-200 hover:border-slate-900 text-sm font-semibold">Refactor</button>
+      </div>
+      <pre id="suggestion" class="mt-4 bg-slate-950 text-slate-100 p-4 rounded-lg h-64 overflow-auto text-sm"></pre>
+    </div>
+  </div>
+</main>
+<footer class="border-t border-slate-200 mt-20">
+  <div class="max-w-7xl mx-auto px-4 md:px-8 py-10 text-sm text-slate-600 flex flex-col md:flex-row items-center justify-between gap-4">
+    <p>© <span id="year"></span> AI Coding Assistant</p>
+    <div class="flex items-center gap-6">
+      <a href="#" class="hover:text-indigo-600">Privacy</a>
+      <a href="#" class="hover:text-indigo-600">Terms</a>
+      <a href="mailto:hello@example.com" class="hover:text-indigo-600">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

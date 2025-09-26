@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Coding Assistant – Builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <!-- Optional client-side LLM; if it fails, we continue in Template Mode -->
+  <script defer src="https://cdn.jsdelivr.net/npm/@mlc-ai/web-llm@0.2.69/dist/webllm.min.js"></script>
+  <script src="/assets/js/config.js"></script>
+  <script defer src="/assets/js/builder.js"></script>
+</head>
+<body class="bg-white text-slate-900" style="font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;">
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur shadow">
+    <div class="max-w-7xl mx-auto px-4 md:px-8 py-3 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2">
+        <span class="inline-flex items-center justify-center w-7 h-7 rounded-md border border-slate-300 text-slate-700 text-sm">&lt;&gt;</span>
+        <span class="font-semibold tracking-tight">FrogCrap</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="/" class="navlink">Home</a>
+        <a href="/playground.html" class="navlink">Playground</a>
+        <a href="/docs.html" class="navlink">Docs</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a href="#" class="hidden sm:inline-block px-4 py-2 rounded-xl border border-slate-200 hover:border-slate-900 text-sm font-medium">Sign in</a>
+        <a href="/builder.html" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-black text-white text-sm font-semibold shadow">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+
+
+
+  <main class="max-w-7xl mx-auto px-4 md:px-8 py-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <!-- CHAT -->
+      <section class="border border-slate-200 rounded-2xl overflow-hidden flex flex-col min-h-[70vh]">
+        <header class="px-4 py-3 border-b border-slate-200 flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-slate-900 text-white text-xs">AI</span>
+            <h2 class="text-sm font-semibold">Assistant</h2>
+          </div>
+          
+    <div class="flex items-center gap-2 text-xs"><span class="px-2 py-1 rounded-lg border border-slate-200">Backend: Hugging Face API</span></div>
+    
+        </header>
+
+
+
+        <div id="chat" class="flex-1 overflow-auto p-4 space-y-4 bg-white">
+          <!-- messages injected here -->
+        </div>
+        <form id="chat-form" class="prompt-wrap relative border-t border-slate-200">
+          <div class="p-2">
+            <div class="relative">
+              <textarea id="chat-input" class="w-full h-[100px] rounded-xl border border-slate-200 pl-4 pr-14 py-3 resize-none"
+                placeholder="Describe what you want to build..."></textarea>
+              <button id="chat-send" type="submit"
+                class="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-lg bg-slate-900 hover:bg-black text-white flex items-center justify-center shadow">🚀</button>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <!-- CANVAS -->
+      <section class="border border-slate-200 rounded-2xl overflow-hidden min-h-[70vh] flex flex-col">
+        <header class="px-3 pt-3">
+          <div class="inline-flex border border-slate-200 rounded-lg overflow-hidden">
+            <button id="tab-preview" class="px-4 py-2 text-sm font-medium bg-white">Preview</button>
+            <button id="tab-code" class="px-4 py-2 text-sm text-slate-600 hover:text-slate-900">Code</button>
+          </div>
+        </header>
+
+
+
+        <div id="canvas" class="flex-1 relative">
+          <iframe id="preview" class="absolute inset-0 w-full h-full bg-white rounded-b-2xl"></iframe>
+          <pre id="code" class="hidden m-0 p-4 text-xs overflow-auto h-full bg-slate-950 text-slate-100"></pre>
+        </div>
+        <footer class="p-3 border-t border-slate-200 flex items-center justify-between text-xs text-slate-600">
+          <span id="gen-status">Ready.</span>
+          <div class="flex items-center gap-2">
+            <button id="copy-code" class="px-3 py-1 rounded-lg border border-slate-300 hover:bg-slate-50">Copy code</button>
+            <button id="download-zip" class="px-3 py-1 rounded-lg border border-slate-300 hover:bg-slate-50">Download .zip</button>
+          </div>
+        </footer>
+      </section>
+    </div>
+  </main>
+
+  <footer class="border-t border-slate-200 mt-10">
+    <div class="max-w-7xl mx-auto px-4 md:px-8 py-6 text-sm text-slate-600 flex items-center justify-between">
+      <p>© <span id="year"></span> AI Coding Assistant</p>
+      <div class="flex items-center gap-6">
+        <a href="#" class="hover:text-slate-900">Privacy</a>
+        <a href="#" class="hover:text-slate-900">Terms</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
